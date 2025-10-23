@@ -81,12 +81,15 @@
     .avatar{width:80px;height:80px;border-radius:50%;margin:0 auto 10px;background:linear-gradient(180deg,#333,#111);border:1px solid rgba(255,255,255,.08)}
 
     /* contact */
-    .contact{display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+    .contact{display:grid;grid-template-columns:1fr;gap:24px}
     form{display:grid;gap:12px}
     input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:transparent;color:var(--text)}
     textarea{min-height:120px;resize:vertical}
 
     footer{border-top:1px solid rgba(255,255,255,.08);padding:28px 0;color:var(--muted)}
+
+    .highlight-email {color: var(--accent, #00bfff); font-weight: 600; font-family: monospace;}
+
 
     /* responsive */
     @media (max-width: 980px){
@@ -116,7 +119,7 @@
           <li><a href="#pricing">Pricing</a></li>
           <li><a href="#team">Team</a></li>
           <li><a href="#contact" class="ghost">Contact</a></li>
-          <li><a href="https://github.com/your-org" class="cta">GitHub</a></li>
+          <li><a href="https://github.com/tudelft3d/SUM-Parts-Benchmarks" class="cta">GitHub</a></li>
         </ul>
       </nav>
     </div>
@@ -131,7 +134,7 @@
         <p class="subtitle">We build centimeter‑level, semantically rich 3D maps to power low‑altitude economy, autonomy, and city‑scale digital twins. Fast to integrate, easy to scale.</p>
         <div style="display:flex;gap:12px;flex-wrap:wrap">
           <a class="cta" href="#contact">Book a demo</a>
-          <a class="ghost" href="https://github.com/your-org/your-repo" target="_blank" rel="noopener">View Open Source</a>
+          <a class="ghost" href="https://github.com/tudelft3d/SUM-Parts-Benchmarks" target="_blank" rel="noopener">View Open Source</a>
         </div>
         <!-- <div class="hero-card" style="margin-top:16px">
           <div class="hero-badges">
@@ -284,27 +287,27 @@
   <section id="team">
     <div class="container">
       <h2 class="section-title">Core team</h2>
-      <p class="section-sub">Headshots, names, and focus areas.</p>
+      <!-- <p class="section-sub">Headshots, names, and focus areas.</p> -->
       <div class="team">
         <div class="member">
           <div class="avatar"></div>
+          <h3>Weixiao Gao</h3>
+          <p class="muted">Co-Founder</p>
+        </div>
+        <div class="member">
+          <div class="avatar"></div>
           <h3>Qin Liu</h3>
-          <p class="muted">Computer Vision · 3D Spatial Intelligence</p>
+          <p class="muted">Co-Founder</p>
         </div>
         <div class="member">
           <div class="avatar"></div>
-          <h3>Alice Zhang</h3>
-          <p class="muted">Product · Partnerships</p>
+          <h3>Yunzhou Han</h3>
+          <p class="muted">Founding Member</p>
         </div>
         <div class="member">
           <div class="avatar"></div>
-          <h3>Bob Chen</h3>
-          <p class="muted">Backend · Platform</p>
-        </div>
-        <div class="member">
-          <div class="avatar"></div>
-          <h3>Carol Wang</h3>
-          <p class="muted">Frontend · Design</p>
+          <h3>Bei Sun</h3>
+          <p class="muted">Founding Member</p>
         </div>
       </div>
     </div>
@@ -315,15 +318,18 @@
     <div class="container contact">
       <div>
         <h2 class="section-title">Contact us</h2>
-        <p class="section-sub">Tell us about your use case and how we can help. If you don't have a backend yet, this form uses <code>mailto:</code>, or swap to a service like Formspree.</p>
-        <form action="mailto:hello@yourcompany.com" method="post" enctype="text/plain">
+        <p class="section-sub">
+          Tell us about your use case and how we can help. Our email 
+          <span class="highlight-email">qinliu2020@gmail.com</span>.
+        </p>
+        <!-- <form action="mailto:qinliu2020@gmail.com" method="post" enctype="text/plain">
           <input name="name" placeholder="Your name" required />
           <input name="email" type="email" placeholder="Email" required />
           <textarea name="message" placeholder="Tell us about your project (UAV routes, city, formats, timeline)..." required></textarea>
           <button class="cta" type="submit">Send</button>
-        </form>
+        </form> -->
       </div>
-      <div class="card">
+      <!-- <div class="card">
         <h3>Quick links</h3>
         <ul class="feature-list muted">
           <li>✔︎ <a href="https://github.com/your-org" target="_blank" rel="noopener">GitHub org</a></li>
@@ -331,14 +337,14 @@
           <li>✔︎ <a href="#" target="_blank" rel="noopener">API reference</a></li>
           <li>✔︎ <a href="#" target="_blank" rel="noopener">Privacy & Terms</a></li>
         </ul>
-      </div>
+      </div> -->
     </div>
   </section>
 
   <footer>
     <div class="container" style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between">
       <div>© <span id="year"></span> Atlas3D AI · All rights reserved.</div>
-      <div class="muted">Built on GitHub Pages · <a href="#" title="Back to top">Back to top ↑</a></div>
+      <div class="muted"><a href="#" title="Back to top">Back to top ↑</a></div>
     </div>
   </footer>
 
