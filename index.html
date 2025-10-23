@@ -78,7 +78,21 @@
     /* team */
     .team{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
     .member{background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:16px;text-align:center}
-    .avatar{width:80px;height:80px;border-radius:50%;margin:0 auto 10px;background:linear-gradient(180deg,#333,#111);border:1px solid rgba(255,255,255,.08)}
+    .avatar{
+      width:80px;
+      height:80px;
+      border-radius:50%;
+      margin:0 auto 8px;
+      background-size: cover;
+      background-position: center;      
+      border:0px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);      
+    }
+
+    .member:nth-child(2) .avatar {
+      background-image: url("assets/qinliu.jpg");
+    }
+
 
     /* contact */
     .contact{display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
@@ -134,15 +148,7 @@
         <p class="subtitle">We build the world's first centimeter‑level, semantically rich 3D maps to power low‑altitude economy, from drone logistics to city‑scale digital twins. </p>
         <div style="display:flex;gap:12px;flex-wrap:wrap">
           <a class="cta" href="#contact">Book a demo</a>
-          <!-- <a class="ghost" href="https://github.com/tudelft3d/SUM-Parts-Benchmarks" target="_blank" rel="noopener">View Open Source</a> -->
         </div>
-        <!-- <div class="hero-card" style="margin-top:16px">
-          <div class="hero-badges">
-            <span class="pill">⭐ Trusted by 1.2k+ stars</span>
-            <span class="pill">🛰️ UAV / SLAM ready</span>
-            <span class="pill">🧭 3D Tiles / glTF / GeoJSON</span>
-          </div>
-        </div> -->
       </div>
       <div>
         <div class="hero-visual">
@@ -192,39 +198,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Tech Specs
-  <section id="tech">
-    <div class="container">
-      <h2 class="section-title">Technical specs</h2>
-      <p class="section-sub">Interoperable formats, consistent coordinate frames, and streaming delivery.</p>
-      <div class="specs">
-        <article class="card">
-          <h3>Data & Formats</h3>
-          <ul class="muted">
-            <li>3D Tiles / glTF / CityJSON / GeoJSON</li>
-            <li>WGS84 / WebMercator / local ENU frames</li>
-            <li>Per‑feature semantics & instance IDs</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>APIs & Delivery</h3>
-          <ul class="muted">
-            <li>Tile endpoints (/{z}/{x}/{y}), HTTP/2 streaming</li>
-            <li>REST & GraphQL for metadata and search</li>
-            <li>Auth via API keys / OAuth2</li>
-          </ul>
-        </article>
-      </div>
-      <div style="margin-top:16px" class="integrations">
-        <div class="integration">Cesium</div>
-        <div class="integration">ROS2</div>
-        <div class="integration">Unreal</div>
-        <div class="integration">Unity</div>
-        <div class="integration">WebGL</div>
-      </div>
-    </div>
-  </section> -->
 
   <!-- Services -->
   <section id="services">
