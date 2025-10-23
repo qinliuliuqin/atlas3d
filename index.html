@@ -89,10 +89,17 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.25);      
     }
 
+    .member:nth-child(1) .avatar {
+      background-image: url("assets/weixiao.jpg");
+    }
+
     .member:nth-child(2) .avatar {
       background-image: url("assets/qinliu.jpg");
     }
 
+    .member:nth-child(3) .avatar {
+      background-image: url("assets/yunzhou.jpg");
+    }
 
     /* contact */
     .contact{display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
@@ -217,40 +224,40 @@
   <section id="pricing">
     <div class="container">
       <h2 class="section-title">Pricing</h2>
-      <p class="section-sub">Simple, transparent plans. Academic & OSS discounts available.</p>
+      <p class="section-sub">Simple, transparent plans.</p>
       <div class="pricing">
         <article class="card price-card">
           <div class="pill">Starter</div>
           <h3 class="price">$0<span class="muted">/mo</span></h3>
-          <p class="muted">Open source SDKs and community support.</p>
+          <p class="muted">For open source projects.</p>
           <ul class="feature-list muted">
-            <li>✔︎ SDKs & samples</li>
-            <li>✔︎ Basic rate limits</li>
-            <li>—</li>
+            <li>✔︎ Basic online GUIs</li>
+            <li>✔︎ Basic quotas</li>
+            <li>✔︎ Limited tech support</li>
           </ul>
           <p><a class="cta" href="#contact">Get started</a></p>
         </article>
         <article class="card price-card" style="border:1.5px solid rgba(126,231,135,.6)">
           <div class="pill">Pro</div>
           <h3 class="price">$99<span class="muted">/mo</span></h3>
-          <p class="muted">For startups and robotics teams.</p>
+          <p class="muted">For startups and small teams.</p>
           <ul class="feature-list muted">
+            <li>✔︎ Advanced online GUIs</li>
             <li>✔︎ Higher quotas</li>
-            <li>✔︎ Team management</li>
-            <li>✔︎ Email support</li>
+            <li>✔︎ Tech support</li>
           </ul>
           <p><a class="cta" href="#contact">Buy now</a></p>
         </article>
         <article class="card price-card">
           <div class="pill">Enterprise</div>
           <h3 class="price">Custom</h3>
-          <p class="muted">On‑prem / private cloud with SLA.</p>
+          <p class="muted">For large companies.</p>
           <ul class="feature-list muted">
-            <li>✔︎ SSO / SAML</li>
+            <li>✔︎ Customized online GUIs</li>
             <li>✔︎ Dedicated support</li>
-            <li>✔︎ Compliance modules</li>
+            <li>✔︎ Optimized modules</li>
           </ul>
-          <p><a class="ghost" href="#contact">Contact sales</a></p>
+          <p><a class="cta" href="#contact">Contact sales</a></p>
         </article>
       </div>
     </div>
@@ -305,7 +312,7 @@
       <div class="card">
         <h3>Quick links</h3>
         <ul class="feature-list muted">
-          <li>✔︎ <a href="https://github.com/your-org" target="_blank" rel="noopener">GitHub org</a></li>
+          <li>✔︎ <a href="https://github.com/tudelft3d/SUM-Parts-Benchmarks" target="_blank" rel="noopener">Opensource project</a></li>
           <li>✔︎ <a href="#" target="_blank" rel="noopener">Docs</a></li>
           <li>✔︎ <a href="#" target="_blank" rel="noopener">API reference</a></li>
           <li>✔︎ <a href="#" target="_blank" rel="noopener">Privacy & Terms</a></li>
