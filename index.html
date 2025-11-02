@@ -281,7 +281,7 @@
         <div class="member">
           <div class="avatar"></div>
           <h3>Qin Liu</h3>
-          <p class="muted">CTO & Co-Founder. Postdoc at Stanford University and PhD from UNC, specializing in computer vision and multimodal AI.</p>
+          <p class="muted">CTO & Co-Founder. Postdoc at Stanford University and PhD from UNC Chapel Hill, specializing in computer vision and multimodal AI.</p>
         </div>
         <div class="member">
           <div class="avatar"></div>
@@ -306,13 +306,68 @@
           Tell us how we can support you at 
           <span class="highlight-email">contact@atlas3d.ai</span>.
         </p>
-        <form action="mailto:contact@atlas3d.ai" method="post" enctype="text/plain">
-          <input name="name" placeholder="Your name" required />
-          <input name="email" type="email" placeholder="Work Email" required />
-          <textarea name="message" placeholder="Description (optional)" required></textarea>
-          <button class="cta" type="submit">Send</button>
+
+        <!-- ✅ Enhanced EmailJS Form -->
+        <form id="contact-form">
+          <input 
+            type="text" 
+            name="user_name" 
+            placeholder="Your name" 
+            required 
+          />
+          <input 
+            type="email" 
+            name="user_email" 
+            placeholder="Work Email" 
+            required 
+          />
+          <textarea 
+            name="message" 
+            placeholder="Description (optional)" 
+            required
+          ></textarea>
+          <button class="cta" id="send-btn" type="submit">Send</button>
         </form>
+
+        <!-- Status message area -->
+        <p id="status" style="margin-top:10px; color:#888;"></p>
+
+        <!-- ✅ EmailJS SDK -->
+        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+        <script>
+          // 初始化 EmailJS (你的 Public Key)
+          emailjs.init("jrkN9L40d6ISvU67C");
+
+          const form = document.getElementById("contact-form");
+          const sendBtn = document.getElementById("send-btn");
+          const status = document.getElementById("status");
+
+          form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            sendBtn.disabled = true;
+            sendBtn.textContent = "Sending...";
+            status.style.color = "#888";
+            status.textContent = "Sending your message...";
+
+            try {
+              await emailjs.sendForm("service_hyqmrqx", "template_ja9l2pr", form);
+              status.textContent = "✅ Message sent successfully!";
+              status.style.color = "green";
+              form.reset();
+            } catch (error) {
+              console.error("EmailJS error:", error);
+              status.textContent = "❌ Failed to send message. Please try again later.";
+              status.style.color = "red";
+            } finally {
+              sendBtn.disabled = false;
+              sendBtn.textContent = "Send";
+            }
+          });
+        </script>
+        <!-- ✅ End of EmailJS section -->
       </div>
+
       <div class="card">
         <h3>Quick links</h3>
         <ul class="feature-list muted">
