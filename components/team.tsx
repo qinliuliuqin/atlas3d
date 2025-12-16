@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card"
 import Image from "next/image"
+import { getImagePath } from "@/lib/getBasePath"
 
 const teamMembers = [
   {
@@ -37,7 +38,7 @@ export function Team() {
           {teamMembers.map((member, index) => (
             <Card key={index} className="p-4 bg-card border-white/[0.08] text-center">
               <div className="w-20 h-20 rounded-full mx-auto mb-2 overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.25)] relative">
-                <Image src={member.image || "/placeholder.svg"} alt={member.name} fill className="object-cover" />
+                <Image src={getImagePath(member.image || "/placeholder.svg")} alt={member.name} fill className="object-cover" />
               </div>
               <h3 className="text-lg font-bold mb-1">{member.name}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">

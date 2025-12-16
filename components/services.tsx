@@ -1,20 +1,21 @@
 import Image from "next/image"
+import { getImagePath } from "@/lib/getBasePath"
 
 const services = [
   {
-    image: "/demo1.gif",
+    image: "demo1.gif",
     alt: "Interactive 3D selection",
   },
   {
-    image: "/demo2.gif",
+    image: "demo2.gif",
     alt: "3D semantic segmentation",
   },
   {
-    image: "/demo3.gif",
+    image: "demo3.gif",
     alt: "3D building mesh",
   },
   {
-    image: "/demo4.gif",
+    image: "demo4.gif",
     alt: "3D park visualization",
   },
 ]
@@ -32,7 +33,7 @@ export function Services() {
               className="relative aspect-[16/9] rounded-2xl bg-[#0f1116] border border-white/[0.08] overflow-hidden"
             >
               <Image
-                src={service.image || "/placeholder.svg"}
+                src={getImagePath(service.image || "/placeholder.svg")}
                 alt={service.alt}
                 fill
                 className="object-cover saturate-110"

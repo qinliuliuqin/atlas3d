@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import { getImagePath } from "@/lib/getBasePath"
 
 export function Hero() {
   return (
@@ -31,7 +32,7 @@ export function Hero() {
           <div>
             <div className="relative aspect-[16/10] rounded-2xl bg-gradient-to-br from-[rgba(91,140,255,0.35)] via-transparent to-[rgba(126,231,135,0.3)] border border-white/[0.08] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
               <Image
-                src="/annotation_results.gif"
+                src={getImagePath("/annotation_results.gif")}
                 alt="3D map visualization"
                 fill
                 className="object-cover opacity-85"
