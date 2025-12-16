@@ -1,5 +1,4 @@
 import Image from "next/image"
-import { getImagePath } from "@/lib/getBasePath"
 
 const services = [
   {
@@ -33,7 +32,7 @@ export function Services() {
               className="relative aspect-[16/9] rounded-2xl bg-[#0f1116] border border-white/[0.08] overflow-hidden"
             >
               <Image
-                src={getImagePath(service.image || "/placeholder.svg")}
+                src={service.image || "/placeholder.svg"}
                 alt={service.alt}
                 fill
                 className="object-cover saturate-110"

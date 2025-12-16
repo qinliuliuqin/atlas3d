@@ -1,14 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: process.env.NODE_ENV === 'production' ? '/atlas3d' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/atlas3d/' : '',
   typescript: {
     ignoreBuildErrors: true,
   },
   images: {
     unoptimized: true,
   },
+  // No basePath needed since we're using custom domain atlas3d.ai
   trailingSlash: true,
 }
 
