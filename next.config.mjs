@@ -1,8 +1,10 @@
 /** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === 'production'
+
 const nextConfig = {
   output: 'export',
-  basePath: '/atlas3d',
-  assetPrefix: '/atlas3d/',
+  basePath: isProd ? '/atlas3d' : '',
+  assetPrefix: isProd ? '/atlas3d/' : '',
   typescript: {
     ignoreBuildErrors: true,
   },

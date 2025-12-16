@@ -20,19 +20,19 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/atlas3d/icon-light-32x32.png",
+        url: "/icon-light-32x32.png",
         media: "(prefers-color-scheme: light)",
       },
       {
-        url: "/atlas3d/icon-dark-32x32.png",
+        url: "/icon-dark-32x32.png",
         media: "(prefers-color-scheme: dark)",
       },
       {
-        url: "/atlas3d/icon.svg",
+        url: "/icon.svg",
         type: "image/svg+xml",
       },
     ],
-    apple: "/atlas3d/apple-icon.png",
+    apple: "/apple-icon.png",
   },
 }
 
