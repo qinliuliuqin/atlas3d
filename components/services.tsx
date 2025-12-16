@@ -2,19 +2,19 @@ import Image from "next/image"
 
 const services = [
   {
-    image: "demo1.gif",
+    image: "/demo1.gif",
     alt: "Interactive 3D selection",
   },
   {
-    image: "demo2.gif",
+    image: "/demo2.gif",
     alt: "3D semantic segmentation",
   },
   {
-    image: "demo3.gif",
+    image: "/demo3.gif",
     alt: "3D building mesh",
   },
   {
-    image: "demo4.gif",
+    image: "/demo4.gif",
     alt: "3D park visualization",
   },
 ]
