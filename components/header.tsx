@@ -9,11 +9,11 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-background/60 backdrop-blur-xl border-b border-white/[0.06]">
-      <div className="container mx-auto px-5">
+      <div className="container mx-auto px-5 text-xl">
         <nav className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2.5 font-extrabold">
             <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-[#5b8cff] via-[#8d76ff] to-[#ff7bd5] shadow-lg" />
-            <span>Atlas3D AI</span>
+            <span>Atlas Spatial Intelligence</span>
           </Link>
 
           <button
@@ -55,7 +55,7 @@ export function Header() {
               </Link>
             </li>
             <li>
-              <Button variant="outline" asChild className="rounded-xl bg-transparent">
+              <Button variant="outline" asChild className="rounded-xl bg-transparent text-xl">
                 <Link href="#contact">Contact</Link>
               </Button>
             </li>

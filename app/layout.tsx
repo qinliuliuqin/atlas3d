@@ -8,7 +8,7 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Atlas3D AI - High-precision 3D maps for spatial intelligence",
+  title: "ASI",
   description:
     "We build the world's first centimeter‑level, semantically rich 3D maps to power spatial intelligence, from drone logistics to city-scale digital twins.",
   generator: "v0.app",
@@ -31,17 +31,31 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+// export default function RootLayout({
+//   children,
+// }: Readonly<{
+//   children: React.ReactNode
+// }>) {
+//   return (
+//     <html lang="en">
+//       <body className={`font-sans antialiased`}>
+//         {children}
+//         <Analytics />
+//       </body>
+//     </html>
+//   )
+// }
+
+// app/layout.tsx
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`font-sans antialiased`}>
-        {children}
-        <Analytics />
+      <body>
+        {/* 这里添加限制宽度的类名 */}
+        <main className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+          {children}
+        </main>
       </body>
     </html>
-  )
+  );
 }
