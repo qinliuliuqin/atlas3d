@@ -13,8 +13,9 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="sticky top-0 z-50 border-b border-white/[0.06] bg-background/60 backdrop-blur-xl">
-        <div className="mx-auto flex h-16 max-w-[1100px] items-center justify-between px-5">
+      {/* Header */}
+      <header className="sticky top-0 z-50 border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-5">
           <a href="#" className="flex items-center gap-2.5 text-xl font-extrabold">
             <span
               className="h-7 w-7 rounded-lg bg-gradient-to-br from-[#5b8cff] via-[#8d76ff] to-[#ff7bd5] shadow-[0_10px_30px_rgba(0,0,0,0.25)]"
@@ -54,8 +55,9 @@ export default function LandingPage() {
         </div>
       </header>
 
-      <section className="relative overflow-hidden py-24 md:py-32">
-        <div className="mx-auto max-w-[1100px] px-5">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden py-12 md:py-25">
+        <div className="mx-auto max-w-[1200px] px-5">
           <div className="grid items-center gap-8 md:grid-cols-[1.2fr_1fr]">
             <div>
               <h1 className="mb-3 text-balance text-4xl font-bold leading-tight md:text-5xl">
@@ -76,32 +78,32 @@ export default function LandingPage() {
                 <a href="#contact">
                   <Button
                     size="lg"
-                    className="rounded-lg bg-[#5b8cff] !py-6 !px-4 text-lg font-bold shadow-[0_10px_30px_rgba(0,0,0,0.25)] hover:bg-[#4a7bef]"
+                    className="rounded-xl bg-[#5b8cff] text-lg font-bold shadow-[0_10px_30px_rgba(0,0,0,0.25)] hover:bg-[#4a7bef]"
                   >
-                    Book a demo
+                    Book demo
                   </Button>
                 </a>
               </div>
             </div>
             <div>
-              <Card className="overflow-hidden border-white/[0.08] bg-card p-0">
+              <Card className="overflow-hidden border-white/[0.08] bg-card p-[18px] shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
                 <div className="relative aspect-[16/10] overflow-hidden rounded-[14px] border border-white/[0.08] bg-gradient-to-br from-[#5b8cff]/35 via-transparent to-[#7ee787]/30">
                   <img
-                    src="/annotation_results.gif"
+                    src="/3d-mapping-visualization.jpg"
                     alt="3D mapping visualization"
                     className="h-full w-full object-cover opacity-85"
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/25" />
                 </div>
               </Card>
-
             </div>
           </div>
         </div>
       </section>
 
-      <section id="features" className="py-16">
-        <div className="mx-auto max-w-[1100px] px-5">
+      {/* Features Section */}
+      <section id="features" className="border-border/40 py-12 md:py-15">
+        <div className="mx-auto max-w-[1200px] px-5">
           <h2 className="mb-3 text-balance text-3xl font-bold md:text-4xl">Why choose our maps</h2>
           <p className="mb-6 text-lg text-muted-foreground">
             Engineered for precision, scale, and real-world deployment.
@@ -161,9 +163,10 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section id="services" className="py-16">
-        <div className="mx-auto max-w-[1100px] px-5">
-          <h2 className="mb-3 text-balance text-3xl font-bold md:text-4xl">Annotation services</h2>
+      {/* Services/Solutions Section */}
+      <section id="services" className="border-border/40 py-12 md:py-20">
+        <div className="mx-auto max-w-[1200px] px-5">
+          <h2 className="mb-3 text-balance text-3xl font-bold md:text-4xl">Annotation Services</h2>
           <p className="mb-6 text-lg text-muted-foreground">
             We provide annotation services for mesh semantic segmentation.
           </p>
@@ -200,8 +203,9 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section id="pricing" className="py-16">
-        <div className="mx-auto max-w-[1100px] px-5">
+      {/* Pricing Section */}
+      <section id="pricing" className="border-border/40 py-12 md:py-20">
+        <div className="mx-auto max-w-[1200px] px-5">
           <h2 className="mb-3 text-balance text-3xl font-bold md:text-4xl">Pricing</h2>
           <p className="mb-6 text-lg text-muted-foreground">Simple, transparent plans.</p>
           <div className="grid gap-[18px] md:grid-cols-2 lg:grid-cols-3">
@@ -293,8 +297,9 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section id="team" className="py-16">
-        <div className="mx-auto max-w-[1100px] px-5">
+      {/* Team Section */}
+      <section id="team" className="border-border/40 py-12 md:py-20">
+        <div className="mx-auto max-w-[1200px] px-5">
           <h2 className="mb-6 text-balance text-3xl font-bold md:text-4xl">Core team</h2>
           <div className="grid gap-[18px] md:grid-cols-2 lg:grid-cols-4">
             <Card className="border-white/[0.08] bg-card p-4 text-center shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
@@ -332,8 +337,9 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section id="contact" className="py-16">
-        <div className="mx-auto max-w-[1100px] px-5">
+      {/* Contact Section */}
+      <section id="contact" className="border-border/40 py-12 md:py-20">
+        <div className="mx-auto max-w-[1200px] px-5">
           <div className="grid gap-6 md:grid-cols-[1.1fr_0.9fr]">
             <div>
               <h2 className="mb-3 text-balance text-3xl font-bold md:text-4xl">Contact us</h2>
@@ -405,8 +411,9 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <footer className="border-t border-white/[0.08] py-7 text-muted-foreground">
-        <div className="mx-auto max-w-[1100px] px-5 text-center">
+      {/* Footer */}
+      <footer className="border-border/40 py-8 text-muted-foreground">
+        <div className="mx-auto max-w-[1200px] px-5 text-center">
           <div>© {new Date().getFullYear()} Atlas3D AI · All rights reserved.</div>
         </div>
       </footer>
