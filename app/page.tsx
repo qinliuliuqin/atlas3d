@@ -497,8 +497,25 @@ export default function LandingPage() {
 
       {/* Footer */}
       <footer className="border-border/40 py-8 text-muted-foreground">
-        <div className="mx-auto max-w-[1200px] px-5 text-center">
-          <div>© {new Date().getFullYear()} Atlas Spatial Intelligence Inc. All rights reserved.</div>
+        <div className="mx-auto max-w-[1200px] px-5">
+          <div className="mb-8 flex justify-center">
+            <a
+              href="https://www.nvidia.com/en-us/startups/"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="group inline-flex items-center gap-3 rounded-xl border border-white/[0.08] bg-card px-6 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.15)] transition-all hover:border-[#76b900]/40 hover:shadow-[0_15px_40px_rgba(118,185,0,0.15)]"
+            >
+              <img
+                src="/nvidia-inception-logo.png"
+                alt="NVIDIA"
+                className="h-10 w-auto transition-transform group-hover:scale-105"
+              />
+              <span className="text-base font-semibold text-muted-foreground">NVIDIA Inception Program</span>
+            </a>
+          </div>
+          <div className="text-center">
+            © {new Date().getFullYear()} Atlas Spatial Intelligence Inc. All rights reserved.
+          </div>
         </div>
       </footer>
 
