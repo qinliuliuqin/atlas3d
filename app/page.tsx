@@ -178,28 +178,28 @@ export default function LandingPage() {
           <div className="grid gap-[18px] md:grid-cols-2">
             <div className="overflow-hidden rounded-[14px] border border-white/[0.08] bg-[#0f1116]">
               <img
-                src="/3d-mesh-annotation-case-.jpg"
+                src="/demo1.gif"
                 alt="3D annotation case 1"
                 className="aspect-video w-full object-cover saturate-110"
               />
             </div>
             <div className="overflow-hidden rounded-[14px] border border-white/[0.08] bg-[#0f1116]">
               <img
-                src="/3d-mesh-annotation-example-2.jpg"
+                src="/demo2.gif"
                 alt="3D annotation case 2"
                 className="aspect-video w-full object-cover saturate-110"
               />
             </div>
             <div className="overflow-hidden rounded-[14px] border border-white/[0.08] bg-[#0f1116]">
               <img
-                src="/3d-mesh-annotation-example-3.jpg"
+                src="/demo3.gif"
                 alt="3D annotation case 3"
                 className="aspect-video w-full object-cover saturate-110"
               />
             </div>
             <div className="overflow-hidden rounded-[14px] border border-white/[0.08] bg-[#0f1116]">
               <img
-                src="/3d-mesh-annotation-example-4.jpg"
+                src="/demo4.gif"
                 alt="3D annotation case 4"
                 className="aspect-video w-full object-cover saturate-110"
               />
@@ -307,35 +307,71 @@ export default function LandingPage() {
         <div className="mx-auto max-w-[1200px] px-5">
           <h2 className="mb-6 text-balance text-3xl font-bold md:text-4xl">Core team</h2>
           <div className="grid gap-[18px] md:grid-cols-2 lg:grid-cols-4">
-            <Card className="border-white/[0.08] bg-card p-4 text-center shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
-              <div className="mx-auto mb-2 h-20 w-20 rounded-full bg-gradient-to-br from-[#5b8cff] to-[#8d76ff] shadow-[0_2px_8px_rgba(0,0,0,0.25)]" />
-              <h3 className="mb-1 text-lg font-bold">Weixiao Gao</h3>
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                CEO & Co-Founder. Postdoc and PhD from TU Delft, specializing in computer vision and 3D geoinformation.
+            <Card className="border-white/[0.08] bg-card p-4 pb-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
+              <div className="mx-auto mb-2 h-20 w-20 rounded-full bg-gradient-to-br from-[#5b8cff] to-[#8d76ff] shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
+                <img
+                  src="/weixiao.jpg"
+                  alt="Weixiao Gao"
+                  className="h-full w-full rounded-full object-cover"
+                />
+              </div>              
+              <h3 className="mb-1 text-xl font-bold leading-tight">Weixiao Gao</h3>
+              <p className="text-lg leading-tight text-muted-foreground">
+                <span>CEO & Co-Founder.</span><br />
+                <span>
+                  Postdoc and PhD from TU Delft, specializing in computer vision and 3D geoinformation.
+                </span>
               </p>
             </Card>
-            <Card className="border-white/[0.08] bg-card p-4 text-center shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
-              <div className="mx-auto mb-2 h-20 w-20 rounded-full bg-gradient-to-br from-[#8d76ff] to-[#ff7bd5] shadow-[0_2px_8px_rgba(0,0,0,0.25)]" />
-              <h3 className="mb-1 text-lg font-bold">Qin Liu</h3>
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                CTO & Co-Founder. Postdoc at Stanford and PhD from UNC Chapel Hill, specializing in computer vision and
-                interactive AI.
+            <Card className="border-white/[0.08] bg-card p-4 pb-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
+              <div className="mx-auto mb-2 h-20 w-20 rounded-full bg-gradient-to-br from-[#8d76ff] to-[#ff7bd5] shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
+                <img
+                  src="/qinliu.jpg"
+                  alt="Qin Liu"
+                  className="h-full w-full rounded-full object-cover"
+                />
+              </div>
+              <h3 className="mb-1 text-xl font-bold leading-tight">Qin Liu</h3>
+              <p className="text-lg leading-tight text-muted-foreground">
+                <span>CTO & Co-Founder.</span><br />
+                <span>
+                  Postdoc at Stanford and PhD from UNC Chapel Hill, specializing in computer vision and
+                  interactive AI.
+                </span>
               </p>
             </Card>
-            <Card className="border-white/[0.08] bg-card p-4 text-center shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
-              <div className="mx-auto mb-2 h-20 w-20 rounded-full bg-gradient-to-br from-[#5b8cff] to-[#7ee787] shadow-[0_2px_8px_rgba(0,0,0,0.25)]" />
-              <h3 className="mb-1 text-lg font-bold">Yunzhou Han</h3>
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                Founding Member. Management graduate from Wageningen University, specializing in financial strategy, HR
-                operations, and fundraising.
+            <Card className="border-white/[0.08] bg-card p-4 pb-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
+              <div className="mx-auto mb-2 h-20 w-20 rounded-full bg-gradient-to-br from-[#5b8cff] to-[#7ee787] shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
+                <img
+                  src="/yunzhou.jpg"
+                  alt="Yunzhou Han"
+                  className="h-full w-full rounded-full object-cover"
+                />
+              </div>
+              <h3 className="mb-1 text-xl font-bold leading-tight">Yunzhou Han</h3>
+              <p className="text-lg leading-tight text-muted-foreground">
+                <span>Founding Member.</span><br />
+                <span>
+                  Management graduate from Wageningen University, specializing in financial strategy, HR
+                  operations, and fundraising.
+                </span>
               </p>
             </Card>
-            <Card className="border-white/[0.08] bg-card p-4 text-center shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
-              <div className="mx-auto mb-2 h-20 w-20 rounded-full bg-gradient-to-br from-[#ff7bd5] to-[#5b8cff] shadow-[0_2px_8px_rgba(0,0,0,0.25)]" />
-              <h3 className="mb-1 text-lg font-bold">Bei Sun</h3>
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                Founding Member. LL.M. graduate from Fudan University, specializing in capital markets, private equity,
-                and post-investment legal advisory.
+            <Card className="border-white/[0.08] bg-card p-4 pb-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
+              <div className="mx-auto mb-2 h-20 w-20 rounded-full bg-gradient-to-br from-[#ff7bd5] to-[#5b8cff] shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
+                <img
+                  src="/beisun.png"
+                  alt="Bei Sun"
+                  className="h-full w-full rounded-full object-cover"
+                />
+              </div>
+              <h3 className="mb-1 text-xl font-bold leading-tight">Bei Sun</h3>
+              <p className="text-lg leading-tight text-muted-foreground">
+                <span>Founding Member.</span><br />
+                <span>
+                  LL.M. graduate from Fudan University, specializing in capital markets, private equity, 
+                  and post-investment legal advisory.
+                </span>
               </p>
             </Card>
           </div>
