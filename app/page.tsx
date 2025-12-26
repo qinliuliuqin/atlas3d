@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { Cable as Cube, Pen, Map, ChevronRight } from "lucide-react"
 
 export default function LandingPage() {
   const [showSignup, setShowSignup] = useState(false)
@@ -25,10 +26,67 @@ export default function LandingPage() {
           </a>
           <nav className="hidden md:block">
             <ul className="flex items-center gap-5">
-              <li>
-                <a href="#features" className="text-foreground/80 hover:text-foreground text-lg">
+              <li className="group relative">
+                <a href="#" className="text-foreground/80 hover:text-foreground text-lg">
                   Products
                 </a>
+                <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-out">
+                  <div className="w-[320px] rounded-2xl border border-white/[0.08] bg-background/98 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.4)] p-2">
+                    <a
+                      href="/products"
+                      className="group/item flex items-start gap-4 rounded-xl px-4 py-4 text-lg hover:bg-white/[0.08] transition-all duration-200"
+                    >
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[#5b8cff]/20 to-[#8d76ff]/20 border border-white/[0.08] group-hover/item:from-[#5b8cff]/30 group-hover/item:to-[#8d76ff]/30 transition-all duration-200">
+                        <Cube className="h-5 w-5 text-[#5b8cff]" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="font-semibold text-foreground">3D Viewer</span>
+                          <ChevronRight className="h-4 w-4 text-muted-foreground opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200" />
+                        </div>
+                        <p className="text-sm text-muted-foreground leading-snug">
+                          Interactive 3D visualization with advanced controls
+                        </p>
+                      </div>
+                    </a>
+
+                    <a
+                      href="#services"
+                      className="group/item flex items-start gap-4 rounded-xl px-4 py-4 text-lg hover:bg-white/[0.08] transition-all duration-200"
+                    >
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[#8d76ff]/20 to-[#ff7bd5]/20 border border-white/[0.08] group-hover/item:from-[#8d76ff]/30 group-hover/item:to-[#ff7bd5]/30 transition-all duration-200">
+                        <Pen className="h-5 w-5 text-[#8d76ff]" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="font-semibold text-foreground">Annotation Tools</span>
+                          <ChevronRight className="h-4 w-4 text-muted-foreground opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200" />
+                        </div>
+                        <p className="text-sm text-muted-foreground leading-snug">
+                          Mesh semantic segmentation and labeling
+                        </p>
+                      </div>
+                    </a>
+
+                    <a
+                      href="#features"
+                      className="group/item flex items-start gap-4 rounded-xl px-4 py-4 text-lg hover:bg-white/[0.08] transition-all duration-200"
+                    >
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[#5b8cff]/20 to-[#7ee787]/20 border border-white/[0.08] group-hover/item:from-[#5b8cff]/30 group-hover/item:to-[#7ee787]/30 transition-all duration-200">
+                        <Map className="h-5 w-5 text-[#7ee787]" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="font-semibold text-foreground">3D Maps API</span>
+                          <ChevronRight className="h-4 w-4 text-muted-foreground opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200" />
+                        </div>
+                        <p className="text-sm text-muted-foreground leading-snug">
+                          Centimeter-level precision mapping data
+                        </p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
               </li>
               <li>
                 <a href="#services" className="text-foreground/80 hover:text-foreground text-lg">
@@ -309,68 +367,53 @@ export default function LandingPage() {
           <div className="grid gap-[18px] md:grid-cols-2 lg:grid-cols-4">
             <Card className="border-white/[0.08] bg-card p-4 pb-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
               <div className="mx-auto mb-2 h-20 w-20 rounded-full bg-gradient-to-br from-[#5b8cff] to-[#8d76ff] shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
-                <img
-                  src="/weixiao.jpg"
-                  alt="Weixiao Gao"
-                  className="h-full w-full rounded-full object-cover"
-                />
-              </div>              
+                <img src="/weixiao.jpg" alt="Weixiao Gao" className="h-full w-full rounded-full object-cover" />
+              </div>
               <h3 className="mb-1 text-xl font-bold leading-tight">Weixiao Gao</h3>
               <p className="text-lg leading-tight text-muted-foreground">
-                <span>CEO & Co-Founder.</span><br />
-                <span>
-                  Postdoc and PhD from TU Delft, specializing in computer vision and 3D geoinformation.
-                </span>
+                <span>CEO & Co-Founder.</span>
+                <br />
+                <span>Postdoc and PhD from TU Delft, specializing in computer vision and 3D geoinformation.</span>
               </p>
             </Card>
             <Card className="border-white/[0.08] bg-card p-4 pb-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
               <div className="mx-auto mb-2 h-20 w-20 rounded-full bg-gradient-to-br from-[#8d76ff] to-[#ff7bd5] shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
-                <img
-                  src="/qinliu.jpg"
-                  alt="Qin Liu"
-                  className="h-full w-full rounded-full object-cover"
-                />
+                <img src="/qinliu.jpg" alt="Qin Liu" className="h-full w-full rounded-full object-cover" />
               </div>
               <h3 className="mb-1 text-xl font-bold leading-tight">Qin Liu</h3>
               <p className="text-lg leading-tight text-muted-foreground">
-                <span>CTO & Co-Founder.</span><br />
+                <span>CTO & Co-Founder.</span>
+                <br />
                 <span>
-                  Postdoc at Stanford and PhD from UNC Chapel Hill, specializing in computer vision and
-                  interactive AI.
+                  Postdoc at Stanford and PhD from UNC Chapel Hill, specializing in computer vision and interactive AI.
                 </span>
               </p>
             </Card>
             <Card className="border-white/[0.08] bg-card p-4 pb-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
               <div className="mx-auto mb-2 h-20 w-20 rounded-full bg-gradient-to-br from-[#5b8cff] to-[#7ee787] shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
-                <img
-                  src="/yunzhou.jpg"
-                  alt="Yunzhou Han"
-                  className="h-full w-full rounded-full object-cover"
-                />
+                <img src="/yunzhou.jpg" alt="Yunzhou Han" className="h-full w-full rounded-full object-cover" />
               </div>
               <h3 className="mb-1 text-xl font-bold leading-tight">Yunzhou Han</h3>
               <p className="text-lg leading-tight text-muted-foreground">
-                <span>Founding Member.</span><br />
+                <span>Founding Member.</span>
+                <br />
                 <span>
-                  Management graduate from Wageningen University, specializing in financial strategy, HR
-                  operations, and fundraising.
+                  Management graduate from Wageningen University, specializing in financial strategy, HR operations, and
+                  fundraising.
                 </span>
               </p>
             </Card>
             <Card className="border-white/[0.08] bg-card p-4 pb-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
               <div className="mx-auto mb-2 h-20 w-20 rounded-full bg-gradient-to-br from-[#ff7bd5] to-[#5b8cff] shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
-                <img
-                  src="/beisun.png"
-                  alt="Bei Sun"
-                  className="h-full w-full rounded-full object-cover"
-                />
+                <img src="/beisun.png" alt="Bei Sun" className="h-full w-full rounded-full object-cover" />
               </div>
               <h3 className="mb-1 text-xl font-bold leading-tight">Bei Sun</h3>
               <p className="text-lg leading-tight text-muted-foreground">
-                <span>Founding Member.</span><br />
+                <span>Founding Member.</span>
+                <br />
                 <span>
-                  LL.M. graduate from Fudan University, specializing in capital markets, private equity, 
-                  and post-investment legal advisory.
+                  LL.M. graduate from Fudan University, specializing in capital markets, private equity, and
+                  post-investment legal advisory.
                 </span>
               </p>
             </Card>
