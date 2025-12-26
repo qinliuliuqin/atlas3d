@@ -21,32 +21,32 @@ export default function LandingPage() {
               className="h-7 w-7 rounded-[8px] bg-gradient-to-br from-[#5b8cff] via-[#8d76ff] to-[#ff7bd5] shadow-[0_10px_30px_rgba(0,0,0,0.25)]"
               aria-hidden="true"
             ></span>
-            <span>Atlas Spatial Intelligence</span>
+            <span>Atlas3D AI</span>
           </a>
           <nav className="hidden md:block">
             <ul className="flex items-center gap-5">
               <li>
-                <a href="#features" className="text-foreground/100 hover:text-foreground text-lg">
+                <a href="#features" className="text-foreground/80 hover:text-foreground text-lg">
                   Products
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-foreground/100 hover:text-foreground text-lg">
+                <a href="#services" className="text-foreground/80 hover:text-foreground text-lg">
                   Services
                 </a>
               </li>
               <li>
-                <a href="#resrouces" className="text-foreground/100 hover:text-foreground text-lg">
+                <a href="#resrouces" className="text-foreground/80 hover:text-foreground text-lg">
                   Resources
                 </a>
               </li>
               <li>
-                <a href="#pricing" className="text-foreground/100 hover:text-foreground text-lg">
+                <a href="#pricing" className="text-foreground/80 hover:text-foreground text-lg">
                   Pricing
                 </a>
               </li>
               <li>
-                <a href="#team" className="text-foreground/100 hover:text-foreground text-lg">
+                <a href="#team" className="text-foreground/80 hover:text-foreground text-lg">
                   Team
                 </a>
               </li>
