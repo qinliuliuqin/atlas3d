@@ -63,7 +63,7 @@ export default function LandingPage() {
                           <ChevronRight className="h-4 w-4 text-muted-foreground opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200" />
                         </div>
                         <p className="text-sm text-muted-foreground leading-snug">
-                          Mesh semantic segmentation and labeling
+                          Segment anything for any modalities
                         </p>
                       </div>
                     </a>
