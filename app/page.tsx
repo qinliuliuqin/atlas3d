@@ -115,51 +115,51 @@ export default function LandingPage() {
           </p>
           <div className="grid gap-[18px] md:grid-cols-2 lg:grid-cols-3">
             <Card className="border-white/[0.08] bg-card p-[18px] shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
-              <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-white/[0.06] px-2.5 py-1.5 font-semibold text-muted-foreground">
+              <div className="mb-1 inline-flex w-fit items-center gap-2 rounded-full bg-white/[0.06] px-2.5 py-1.5 font-semibold text-muted-foreground">
                 🎯 Precision
               </div>
-              <h3 className="mb-2 text-xl font-bold">Centimeter-level accuracy</h3>
+              <h3 className="-mt-1 text-xl font-bold leading-none">Centimeter-level accuracy</h3>
               <p className="text-lg text-muted-foreground">
                 Robust geo-registration and QA pipelines minimize drift and noise.
               </p>
             </Card>
             <Card className="border-white/[0.08] bg-card p-[18px] shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
-              <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-white/[0.06] px-2.5 py-1.5 font-semibold text-muted-foreground">
+              <div className="mb-1 inline-flex w-fit items-center gap-2 rounded-full bg-white/[0.06] px-2.5 py-1.5 font-semibold text-muted-foreground">
                 🧠 Semantics
               </div>
-              <h3 className="mb-2 text-xl font-bold">Rich, layered semantics</h3>
+              <h3 className="-mt-1 text-xl font-bold leading-none">Rich, layered semantics</h3>
               <p className="text-lg text-muted-foreground">
                 Roads, facades, trees, powerlines, curb ramps — all vectorized.
               </p>
             </Card>
             <Card className="border-white/[0.08] bg-card p-[18px] shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
-              <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-white/[0.06] px-2.5 py-1.5 font-semibold text-muted-foreground">
+              <div className="mb-1 inline-flex w-fit items-center gap-2 rounded-full bg-white/[0.06] px-2.5 py-1.5 font-semibold text-muted-foreground">
                 ⚡ Performance
               </div>
-              <h3 className="mb-2 text-xl font-bold">10× faster queries</h3>
+              <h3 className="-mt-1 text-xl font-bold leading-none">10× faster queries</h3>
               <p className="text-lg text-muted-foreground">
                 Spatial indices and streamable tiles cut latency for path planning.
               </p>
             </Card>
             <Card className="border-white/[0.08] bg-card p-[18px] shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
-              <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-white/[0.06] px-2.5 py-1.5 font-semibold text-muted-foreground">
+              <div className="mb-1 inline-flex w-fit items-center gap-2 rounded-full bg-white/[0.06] px-2.5 py-1.5 font-semibold text-muted-foreground">
                 🔌 Integrations
               </div>
-              <h3 className="mb-2 text-xl font-bold">Works with your stack</h3>
+              <h3 className="-mt-1 text-xl font-bold leading-none">Works with your stack</h3>
               <p className="text-lg text-muted-foreground">ROS2, WebGL, Cesium, Unreal, and common GIS formats.</p>
             </Card>
             <Card className="border-white/[0.08] bg-card p-[18px] shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
-              <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-white/[0.06] px-2.5 py-1.5 font-semibold text-muted-foreground">
+              <div className="mb-1 inline-flex w-fit items-center gap-2 rounded-full bg-white/[0.06] px-2.5 py-1.5 font-semibold text-muted-foreground">
                 🛡️ Reliability
               </div>
-              <h3 className="mb-2 text-xl font-bold">Enterprise-grade ops</h3>
+              <h3 className="-mt-1 text-xl font-bold leading-none">Enterprise-grade ops</h3>
               <p className="text-lg text-muted-foreground">SLAs, versioned updates, signed tiles, and audit trails.</p>
             </Card>
             <Card className="border-white/[0.08] bg-card p-[18px] shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
-              <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-white/[0.06] px-2.5 py-1.5 font-semibold text-muted-foreground">
+              <div className="mb-1 inline-flex w-fit items-center gap-2 rounded-full bg-white/[0.06] px-2.5 py-1.5 font-semibold text-muted-foreground">
                 🌐 Open
               </div>
-              <h3 className="mb-2 text-xl font-bold">APIs & SDKs</h3>
+              <h3 className="-mt-1 text-xl font-bold leading-none">APIs & SDKs</h3>
               <p className="text-lg text-muted-foreground">
                 REST/GraphQL tile APIs and client SDKs for web, mobile, and C++.
               </p>
@@ -171,7 +171,7 @@ export default function LandingPage() {
       {/* Services/Solutions Section */}
       <section id="services" className="border-border/40 py-12 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
-          <h2 className="mb-3 text-balance text-3xl font-bold md:text-4xl">Annotation Services</h2>
+          <h2 className="mb-3 text-balance text-3xl font-bold md:text-4xl">Annotation services</h2>
           <p className="mb-6 text-lg text-muted-foreground">
             We provide annotation services for mesh semantic segmentation.
           </p>
