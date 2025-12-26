@@ -18,7 +18,7 @@ export default function LandingPage() {
         <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-5">
           <a href="#" className="flex items-center gap-2.5 text-xl font-extrabold">
             <span
-              className="h-7 w-7 rounded-lg bg-gradient-to-br from-[#5b8cff] via-[#8d76ff] to-[#ff7bd5] shadow-[0_10px_30px_rgba(0,0,0,0.25)]"
+              className="h-7 w-7 rounded-[8px] bg-gradient-to-br from-[#5b8cff] via-[#8d76ff] to-[#ff7bd5] shadow-[0_10px_30px_rgba(0,0,0,0.25)]"
               aria-hidden="true"
             ></span>
             <span>Atlas3D AI</span>
@@ -26,27 +26,32 @@ export default function LandingPage() {
           <nav className="hidden md:block">
             <ul className="flex items-center gap-5">
               <li>
-                <a href="#features" className="text-foreground/80 hover:text-foreground">
+                <a href="#features" className="text-foreground/100 hover:text-foreground text-lg">
                   Products
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-foreground/80 hover:text-foreground">
+                <a href="#services" className="text-foreground/100 hover:text-foreground text-lg">
                   Services
                 </a>
               </li>
               <li>
-                <a href="#pricing" className="text-foreground/80 hover:text-foreground">
+                <a href="#services" className="text-foreground/100 hover:text-foreground text-lg">
+                  Resources
+                </a>
+              </li>
+              <li>
+                <a href="#pricing" className="text-foreground/100 hover:text-foreground text-lg">
                   Pricing
                 </a>
               </li>
               <li>
-                <a href="#team" className="text-foreground/80 hover:text-foreground">
+                <a href="#team" className="text-foreground/100 hover:text-foreground text-lg">
                   Team
                 </a>
               </li>
               <li>
-                <a href="#contact" className="rounded-xl border border-white/15 px-4 py-2.5 hover:bg-white/5">
+                <a href="#contact" className="rounded-xl border border-white/15 px-4 py-2.5 hover:bg-white/5 text-lg">
                   Contact
                 </a>
               </li>
@@ -78,7 +83,7 @@ export default function LandingPage() {
                 <a href="#contact">
                   <Button
                     size="lg"
-                    className="rounded-xl bg-[#5b8cff] text-lg font-bold shadow-[0_10px_30px_rgba(0,0,0,0.25)] hover:bg-[#4a7bef]"
+                    className="rounded-lg bg-[#5b8cff] text-lg font-bold shadow-[0_10px_30px_rgba(0,0,0,0.25)] hover:bg-[#4a7bef]"
                   >
                     Book demo
                   </Button>
@@ -86,10 +91,10 @@ export default function LandingPage() {
               </div>
             </div>
             <div>
-              <Card className="overflow-hidden border-white/[0.08] bg-card p-[18px] shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
+              <Card className="overflow-hidden border-white/[0.08] bg-card p-0 shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
                 <div className="relative aspect-[16/10] overflow-hidden rounded-[14px] border border-white/[0.08] bg-gradient-to-br from-[#5b8cff]/35 via-transparent to-[#7ee787]/30">
                   <img
-                    src="/3d-mapping-visualization.jpg"
+                    src="/annotation_results.gif"
                     alt="3D mapping visualization"
                     className="h-full w-full object-cover opacity-85"
                   />
