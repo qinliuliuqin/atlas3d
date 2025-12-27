@@ -506,9 +506,9 @@ export default function LandingPage() {
               className="group inline-flex items-center gap-3 rounded-xl border border-white/[0.08] bg-card px-6 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.15)] transition-all hover:border-[#76b900]/40 hover:shadow-[0_15px_40px_rgba(118,185,0,0.15)]"
             >
               <img
-                src="/nvidia-inception-logo.png"
+                src="/nvidia-logo.png"
                 alt="NVIDIA"
-                className="h-10 w-auto transition-transform group-hover:scale-105"
+                className="h-12 w-auto transition-transform duration-300 group-hover:scale-110"
               />
               <span className="text-base font-semibold text-muted-foreground">NVIDIA Inception Program</span>
             </a>
