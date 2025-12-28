@@ -18,11 +18,15 @@ export default function LandingPage() {
       <header className="sticky top-0 z-50 border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-5">
           <a href="#" className="flex items-center gap-2.5 text-xl font-extrabold">
-            <span
+            {/* <span
               className="h-7 w-7 rounded-[8px] bg-gradient-to-br from-[#5b8cff] via-[#8d76ff] to-[#ff7bd5] shadow-[0_10px_30px_rgba(0,0,0,0.25)]"
               aria-hidden="true"
-            ></span>
-            <span>Atlas3D AI</span>
+            ></span> */}
+            <img
+              src="/asi-logo-black.png"
+              className="h-12 w-12 rounded-[8px] transition-transform duration-300 group-hover:scale-110"
+            />
+            <span>Atlas Spatial Intelligence</span>
           </a>
           <nav className="hidden md:block">
             <ul className="flex items-center gap-5">

@@ -13,19 +13,19 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/logo_small.png',
+        url: '/asi-logo-black.png',
         media: '(prefers-color-scheme: light)',
       },
       {
-        url: '/logo_small.png',
+        url: '/asi-logo-black.png',
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/logo_small.png',
+        url: '/asi-logo-black.png',
         type: 'image/svg+xml',
       },
     ],
-    apple: '/logo_small.png',
+    apple: '/asi-logo-black.png',
   },
 }
 
