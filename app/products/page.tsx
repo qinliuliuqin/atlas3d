@@ -3,6 +3,7 @@
 import { Canvas } from "@react-three/fiber"
 import { OrbitControls, Environment, Sky, PerspectiveCamera } from "@react-three/drei"
 import { Suspense } from "react"
+import Header from "@/components/header"
 
 function Box({ position }: { position: [number, number, number] }) {
   return (
@@ -55,53 +56,6 @@ function Scene() {
 export default function ProductsPage() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-5">
-          <a href="/" className="flex items-center gap-2.5 text-xl font-extrabold">
-            <span
-              className="h-7 w-7 rounded-[8px] bg-gradient-to-br from-[#5b8cff] via-[#8d76ff] to-[#ff7bd5] shadow-[0_10px_30px_rgba(0,0,0,0.25)]"
-              aria-hidden="true"
-            ></span>
-            <span>Atlas3D AI</span>
-          </a>
-          <nav className="hidden md:block">
-            <ul className="flex items-center gap-5">
-              <li>
-                <a href="/products" className="text-primary hover:text-primary/80 text-lg font-semibold">
-                  Products
-                </a>
-              </li>
-              <li>
-                <a href="/#services" className="text-foreground/80 hover:text-foreground text-lg">
-                  Services
-                </a>
-              </li>
-              <li>
-                <a href="/#resrouces" className="text-foreground/80 hover:text-foreground text-lg">
-                  Resources
-                </a>
-              </li>
-              <li>
-                <a href="/#pricing" className="text-foreground/80 hover:text-foreground text-lg">
-                  Pricing
-                </a>
-              </li>
-              <li>
-                <a href="/#team" className="text-foreground/80 hover:text-foreground text-lg">
-                  Team
-                </a>
-              </li>
-              <li>
-                <a href="/#contact" className="rounded-xl border border-white/15 px-4 py-2.5 hover:bg-white/5 text-lg">
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </header>
-
       {/* 3D Viewer Section */}
       <div className="mx-auto max-w-[1200px] px-5 py-12">
         <div className="mb-6">
