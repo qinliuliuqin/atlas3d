@@ -42,7 +42,7 @@ const Header: React.FC = () => {
                   </a>
 
                   <a
-                    href="#services"
+                    href="#"
                     className="group/item flex items-start gap-4 rounded-xl px-4 py-4 text-lg hover:bg-white/[0.08] transition-all duration-200"
                   >
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[#8d76ff]/20 to-[#ff7bd5]/20 border border-white/[0.08] group-hover/item:from-[#8d76ff]/30 group-hover/item:to-[#ff7bd5]/30 transition-all duration-200">
@@ -60,7 +60,7 @@ const Header: React.FC = () => {
                   </a>
 
                   <a
-                    href="#features"
+                    href="#"
                     className="group/item flex items-start gap-4 rounded-xl px-4 py-4 text-lg hover:bg-white/[0.08] transition-all duration-200"
                   >
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[#5b8cff]/20 to-[#7ee787]/20 border border-white/[0.08] group-hover/item:from-[#5b8cff]/30 group-hover/item:to-[#7ee787]/30 transition-all duration-200">
