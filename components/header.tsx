@@ -24,7 +24,7 @@ const Header: React.FC = () => {
               <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-out">
                 <div className="w-[320px] rounded-2xl border border-white/[0.08] bg-background/98 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.4)] p-2">
                   <a
-                    href="/products"
+                    href="/products/viewer"
                     className="group/item flex items-start gap-4 rounded-xl px-4 py-4 text-lg hover:bg-white/[0.08] transition-all duration-200"
                   >
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[#5b8cff]/20 to-[#8d76ff]/20 border border-white/[0.08] group-hover/item:from-[#5b8cff]/30 group-hover/item:to-[#8d76ff]/30 transition-all duration-200">
