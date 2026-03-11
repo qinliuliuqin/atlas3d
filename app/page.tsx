@@ -259,7 +259,7 @@ export default function LandingPage() {
       <section id="team" className="border-border/40 py-12 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <h2 className="mb-6 text-balance text-3xl font-bold md:text-4xl">Core team</h2>
-          <div className="grid gap-[18px] md:grid-cols-2 lg:grid-cols-5">
+          <div className="grid gap-[18px] md:grid-cols-2 lg:grid-cols-4">
             <Card className="border-white/[0.08] bg-card p-4 pb-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
               <div className="mx-auto mb-2 h-20 w-20 rounded-full bg-gradient-to-br from-[#5b8cff] to-[#8d76ff] shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
                 <img src="/weixiao.jpg" alt="Weixiao Gao" className="h-full w-full rounded-full object-cover" />
@@ -271,7 +271,7 @@ export default function LandingPage() {
                 <span>Postdoc and PhD from TU Delft, specializing in computer vision and 3D geoinformation.</span>
               </p>
             </Card>
-            <Card className="border-white/[0.08] bg-card p-4 pb-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
+            {/* <Card className="border-white/[0.08] bg-card p-4 pb-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
               <div className="mx-auto mb-2 h-20 w-20 rounded-full bg-gradient-to-br from-[#8d76ff] to-[#ff7bd5] shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
                 <img src="/qinliu.jpg" alt="Qin Liu" className="h-full w-full rounded-full object-cover" />
               </div>
@@ -283,7 +283,7 @@ export default function LandingPage() {
                   Postdoc at Stanford and PhD from UNC Chapel Hill, specializing in computer vision and interactive AI.
                 </span>
               </p>
-            </Card>
+            </Card> */}
             <Card className="border-white/[0.08] bg-card p-4 pb-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
               <div className="mx-auto mb-2 h-20 w-20 rounded-full bg-gradient-to-br from-[#5b8cff] to-[#7ee787] shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
                 <img src="/yunzhou.jpg" alt="Yunzhou Han" className="h-full w-full rounded-full object-cover" />
