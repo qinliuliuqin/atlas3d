@@ -19,19 +19,19 @@ export default function ViewerPage() {
       // Load CSS
       const link = document.createElement("link")
       link.rel = "stylesheet"
-      link.href = "/build/website_dev/o3dv.website.min.css"
+      link.href = "/o3dv/o3dv.website.min.css"
       document.head.appendChild(link)
 
       // Load JS
       const script = document.createElement("script")
-      script.src = "/build/website_dev/o3dv.website.min.js"
+      script.src = "/o3dv/o3dv.website.min.js"
       script.onload = () => {
         setIsViewerLoaded(true)
         console.log("[v0] Online3DViewer library loaded")
 
-        // Initialize the viewer after script loads
-        if (viewerContainerRef.current && (window as any).OV) {
-          ;(window as any).OV.StartWebsite(viewerContainerRef.current)
+        // Initialize the embed viewer after script loads
+        if ((window as any).OV) {
+          ;(window as any).OV.StartEmbed()
         }
       }
       script.onerror = () => {
@@ -124,8 +124,10 @@ export default function ViewerPage() {
           {/* Viewer */}
           <Card className="relative overflow-hidden border-white/[0.08] bg-card p-0 shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
             <div ref={viewerContainerRef} className="w-full h-[700px] rounded-lg bg-[#0f1116]" id="viewer_3d_container">
+              <div id="embed_viewer" className="w-full h-full"></div>
+              <div id="website_link" className="hidden"></div>
               {!isViewerLoaded && (
-                <div className="flex h-full items-center justify-center">
+                <div className="flex h-full items-center justify-center absolute inset-0">
                   <div className="text-center">
                     <div className="mb-4 text-muted-foreground">Drag and drop 3D models here.</div>
                   </div>

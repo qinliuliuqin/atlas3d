@@ -259,7 +259,7 @@ export default function LandingPage() {
       <section id="team" className="border-border/40 py-12 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <h2 className="mb-6 text-balance text-3xl font-bold md:text-4xl">Core team</h2>
-          <div className="grid gap-[18px] md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-[18px] md:grid-cols-2 lg:grid-cols-5">
             <Card className="border-white/[0.08] bg-card p-4 pb-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
               <div className="mx-auto mb-2 h-20 w-20 rounded-full bg-gradient-to-br from-[#5b8cff] to-[#8d76ff] shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
                 <img src="/weixiao.jpg" alt="Weixiao Gao" className="h-full w-full rounded-full object-cover" />
@@ -309,6 +309,19 @@ export default function LandingPage() {
                 <span>
                   LL.M. graduate from Fudan University, specializing in capital markets, private equity, and
                   post-investment legal advisory.
+                </span>
+              </p>
+            </Card>
+            <Card className="border-white/[0.08] bg-card p-4 pb-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
+              <div className="mx-auto mb-2 h-20 w-20 rounded-full bg-gradient-to-br from-[#7ee787] to-[#8d76ff] shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
+                <img src="/zhongxuan.jpg" alt="Zhongxuan Ma" className="h-full w-full rounded-full object-cover" />
+              </div>
+              <h3 className="mb-1 text-xl font-bold leading-tight">Zhongxuan Ma</h3>
+              <p className="text-lg leading-tight text-muted-foreground">
+                <span>Founding Member.</span>
+                <br />
+                <span>
+                  Postdoc and PhD from VU Amsterdam, specializing in computer-aided drug discovery and vehicle dispatching.
                 </span>
               </p>
             </Card>
