@@ -280,7 +280,7 @@ export default function LandingPage() {
       <section id="team" className="border-border/40 py-12 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <h2 className="mb-6 text-balance text-3xl font-bold md:text-4xl">Core team</h2>
-          <div className="grid gap-[18px] md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-[18px] md:grid-cols-2 lg:grid-cols-5">
             <Card className="border-white/[0.08] bg-card p-4 pb-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
               <div className="mx-auto mb-2 h-20 w-20 rounded-full bg-gradient-to-br from-[#5b8cff] to-[#8d76ff] shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
                 <img src="/weixiao.jpg" alt="Weixiao Gao" className="h-full w-full rounded-full object-cover" />
@@ -292,11 +292,11 @@ export default function LandingPage() {
                 <span>Postdoc and PhD from TU Delft, specializing in computer vision and 3D geoinformation.</span>
               </p>
             </Card>
-            {/* <Card className="border-white/[0.08] bg-card p-4 pb-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
+            <Card className="border-white/[0.08] bg-card p-4 pb-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
               <div className="mx-auto mb-2 h-20 w-20 rounded-full bg-gradient-to-br from-[#8d76ff] to-[#ff7bd5] shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
-                <img src="/qinliu.jpg" alt="Qin Liu" className="h-full w-full rounded-full object-cover" />
+                <img src="/qinliu_ai.png" alt="Kai Liu" className="h-full w-full rounded-full object-cover" />
               </div>
-              <h3 className="mb-1 text-xl font-bold leading-tight">Qin Liu</h3>
+              <h3 className="mb-1 text-xl font-bold leading-tight">Kai Liu</h3>
               <p className="text-lg leading-tight text-muted-foreground">
                 <span>CTO & Co-Founder.</span>
                 <br />
@@ -304,7 +304,7 @@ export default function LandingPage() {
                   Postdoc at Stanford and PhD from UNC Chapel Hill, specializing in computer vision and interactive AI.
                 </span>
               </p>
-            </Card> */}
+            </Card>
             <Card className="border-white/[0.08] bg-card p-4 pb-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
               <div className="mx-auto mb-2 h-20 w-20 rounded-full bg-gradient-to-br from-[#5b8cff] to-[#7ee787] shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
                 <img src="/yunzhou.jpg" alt="Yunzhou Han" className="h-full w-full rounded-full object-cover" />
@@ -321,9 +321,9 @@ export default function LandingPage() {
             </Card>
             <Card className="border-white/[0.08] bg-card p-4 pb-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
               <div className="mx-auto mb-2 h-20 w-20 rounded-full bg-gradient-to-br from-[#ff7bd5] to-[#5b8cff] shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
-                <img src="/beisun.png" alt="Bei Sun" className="h-full w-full rounded-full object-cover" />
+                <img src="/beisun_ai.png" alt="Bella Sun" className="h-full w-full rounded-full object-cover" />
               </div>
-              <h3 className="mb-1 text-xl font-bold leading-tight">Bei Sun</h3>
+              <h3 className="mb-1 text-xl font-bold leading-tight">Bella Sun</h3>
               <p className="text-lg leading-tight text-muted-foreground">
                 <span>Founding Member.</span>
                 <br />
