@@ -161,7 +161,28 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Pricing Section */}
+      {/* Human Data Section */}
+      <section id="human-data" className="border-border/40 py-12 md:py-20">
+        <div className="mx-auto max-w-[1200px] px-5">
+          <h2 className="mb-3 text-balance text-3xl font-bold md:text-4xl">Human Data with Motion Tracking</h2>
+          <p className="mb-6 text-lg text-muted-foreground">
+            High-quality human demonstration data to train and evaluate robotic systems.
+          </p>
+          <div className="overflow-hidden rounded-[14px] border border-white/[0.08] bg-[#0f1116]">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full"
+            >
+              <source src="/ASI-product-human-data.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section (hidden)
       <section id="pricing" className="border-border/40 py-12 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <h2 className="mb-3 text-balance text-3xl font-bold md:text-4xl">Pricing</h2>
@@ -253,7 +274,7 @@ export default function LandingPage() {
             </Card>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Team Section */}
       <section id="team" className="border-border/40 py-12 md:py-20">
