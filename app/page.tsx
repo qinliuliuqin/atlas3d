@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
@@ -10,6 +10,15 @@ import { Textarea } from "@/components/ui/textarea"
 export default function LandingPage() {
   const [showSignup, setShowSignup] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (video) {
+      video.muted = true
+      video.play().catch(() => {})
+    }
+  }, [])
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -170,10 +179,12 @@ export default function LandingPage() {
           </p>
           <div className="overflow-hidden rounded-[14px] border border-white/[0.08] bg-[#0f1116]">
             <video
+              ref={videoRef}
               autoPlay
               loop
               muted
               playsInline
+              preload="auto"
               className="w-full"
             >
               <source src="/ASI-product-human-data.mp4" type="video/mp4" />
@@ -292,6 +303,7 @@ export default function LandingPage() {
                 <span>Postdoc and PhD from TU Delft, specializing in computer vision and 3D geoinformation.</span>
               </p>
             </Card>
+            {/* Kai Liu hidden
             <Card className="border-white/[0.08] bg-card p-4 pb-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
               <div className="mx-auto mb-2 h-20 w-20 rounded-full bg-gradient-to-br from-[#8d76ff] to-[#ff7bd5] shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
                 <img src="/qinliu_ai.png" alt="Kai Liu" className="h-full w-full rounded-full object-cover" />
@@ -305,6 +317,7 @@ export default function LandingPage() {
                 </span>
               </p>
             </Card>
+            */}
             <Card className="border-white/[0.08] bg-card p-4 pb-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
               <div className="mx-auto mb-2 h-20 w-20 rounded-full bg-gradient-to-br from-[#5b8cff] to-[#7ee787] shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
                 <img src="/yunzhou.jpg" alt="Yunzhou Han" className="h-full w-full rounded-full object-cover" />
