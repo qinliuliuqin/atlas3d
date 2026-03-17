@@ -55,15 +55,11 @@ export default function LandingPage() {
             <div>
               <Card className="overflow-hidden border-white/[0.08] bg-card p-0 shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
                 <div className="relative aspect-[16/10] overflow-hidden rounded-[14px] border border-white/[0.08] bg-gradient-to-br from-[#5b8cff]/35 via-transparent to-[#7ee787]/30">
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
+                  <img
+                    src="/annotation_results.gif"
+                    alt="3D mapping visualization"
                     className="h-full w-full object-cover opacity-85"
-                  >
-                    <source src="/annotation_results.mp4" type="video/mp4" />
-                  </video>
+                  />
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/25" />
                 </div>
               </Card>
@@ -143,48 +139,32 @@ export default function LandingPage() {
           </p>
           <div className="grid gap-[18px] md:grid-cols-2">
             <div className="overflow-hidden rounded-[14px] border border-white/[0.08] bg-[#0f1116]">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
+              <img
+                src="/demo1.gif"
+                alt="3D annotation case 1"
                 className="aspect-video w-full object-cover saturate-110"
-              >
-                <source src="/demo1.mp4" type="video/mp4" />
-              </video>
+              />
             </div>
             <div className="overflow-hidden rounded-[14px] border border-white/[0.08] bg-[#0f1116]">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
+              <img
+                src="/demo2.gif"
+                alt="3D annotation case 2"
                 className="aspect-video w-full object-cover saturate-110"
-              >
-                <source src="/demo2.mp4" type="video/mp4" />
-              </video>
+              />
             </div>
             <div className="overflow-hidden rounded-[14px] border border-white/[0.08] bg-[#0f1116]">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
+              <img
+                src="/demo3.gif"
+                alt="3D annotation case 3"
                 className="aspect-video w-full object-cover saturate-110"
-              >
-                <source src="/demo3.mp4" type="video/mp4" />
-              </video>
+              />
             </div>
             <div className="overflow-hidden rounded-[14px] border border-white/[0.08] bg-[#0f1116]">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
+              <img
+                src="/demo4.gif"
+                alt="3D annotation case 4"
                 className="aspect-video w-full object-cover saturate-110"
-              >
-                <source src="/demo4.mp4" type="video/mp4" />
-              </video>
+              />
             </div>
           </div>
         </div>
