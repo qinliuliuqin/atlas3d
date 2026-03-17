@@ -94,11 +94,13 @@ const Header: React.FC = () => {
                 Pricing
               </a>
             </li>
+            {/* Team link hidden
             <li>
               <a href="#team" className="text-foreground/80 hover:text-foreground text-lg">
                 Team
               </a>
             </li>
+            */}
             <li>
               <a href="#contact" className="rounded-xl border border-white/15 px-4 py-2.5 hover:bg-white/5 text-lg">
                 Contact

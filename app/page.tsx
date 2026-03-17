@@ -178,17 +178,28 @@ export default function LandingPage() {
             High-quality human demonstration data to train and evaluate robotic systems.
           </p>
           <div className="overflow-hidden rounded-[14px] border border-white/[0.08] bg-[#0f1116]">
-            <video
-              ref={videoRef}
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
-              className="w-full"
-            >
-              <source src="/ASI-product-human-data.mp4" type="video/mp4" />
-            </video>
+            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+            {(() => {
+              const videoProps: any = {
+                ref: videoRef,
+                autoPlay: true,
+                loop: true,
+                muted: true,
+                playsInline: true,
+                preload: "auto",
+                className: "w-full",
+                "webkit-playsinline": "true",
+                "x5-playsinline": "true",
+                "x5-video-player-type": "h5",
+                "x5-video-player-fullscreen": "false",
+                "x5-video-orientation": "portraint",
+              }
+              return (
+                <video {...videoProps}>
+                  <source src="/ASI-product-human-data.mp4" type="video/mp4" />
+                </video>
+              )
+            })()}
           </div>
         </div>
       </section>
@@ -287,7 +298,7 @@ export default function LandingPage() {
         </div>
       </section> */}
 
-      {/* Team Section */}
+      {/* Team Section - hidden
       <section id="team" className="border-border/40 py-12 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <h2 className="mb-6 text-balance text-3xl font-bold md:text-4xl">Core team</h2>
@@ -303,7 +314,6 @@ export default function LandingPage() {
                 <span>Postdoc and PhD from TU Delft, specializing in computer vision and 3D geoinformation.</span>
               </p>
             </Card>
-            {/* Kai Liu hidden
             <Card className="border-white/[0.08] bg-card p-4 pb-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
               <div className="mx-auto mb-2 h-20 w-20 rounded-full bg-gradient-to-br from-[#8d76ff] to-[#ff7bd5] shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
                 <img src="/qinliu_ai.png" alt="Kai Liu" className="h-full w-full rounded-full object-cover" />
@@ -317,7 +327,6 @@ export default function LandingPage() {
                 </span>
               </p>
             </Card>
-            */}
             <Card className="border-white/[0.08] bg-card p-4 pb-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
               <div className="mx-auto mb-2 h-20 w-20 rounded-full bg-gradient-to-br from-[#5b8cff] to-[#7ee787] shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
                 <img src="/yunzhou.jpg" alt="Yunzhou Han" className="h-full w-full rounded-full object-cover" />
@@ -362,6 +371,7 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+      */}
 
       {/* Contact Section */}
       <section id="contact" className="border-border/40 py-12 md:py-20">
