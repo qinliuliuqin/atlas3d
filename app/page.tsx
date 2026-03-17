@@ -11,12 +11,23 @@ export default function LandingPage() {
   const [showSignup, setShowSignup] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
+  const [showPlayButton, setShowPlayButton] = useState(false)
 
   useEffect(() => {
     const video = videoRef.current
-    if (video) {
-      video.muted = true
-      video.play().catch(() => {})
+    if (!video) return
+    // Set non-standard WeChat/X5 attributes via DOM
+    video.setAttribute("webkit-playsinline", "true")
+    video.setAttribute("x5-playsinline", "true")
+    video.setAttribute("x5-video-player-type", "h5")
+    video.setAttribute("x5-video-player-fullscreen", "false")
+    video.muted = true
+    const playPromise = video.play()
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Autoplay blocked — show play button overlay
+        setShowPlayButton(true)
+      })
     }
   }, [])
 
@@ -177,29 +188,37 @@ export default function LandingPage() {
           <p className="mb-6 text-lg text-muted-foreground">
             High-quality human demonstration data to train and evaluate robotic systems.
           </p>
-          <div className="overflow-hidden rounded-[14px] border border-white/[0.08] bg-[#0f1116]">
-            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-            {(() => {
-              const videoProps: any = {
-                ref: videoRef,
-                autoPlay: true,
-                loop: true,
-                muted: true,
-                playsInline: true,
-                preload: "auto",
-                className: "w-full",
-                "webkit-playsinline": "true",
-                "x5-playsinline": "true",
-                "x5-video-player-type": "h5",
-                "x5-video-player-fullscreen": "false",
-                "x5-video-orientation": "portraint",
-              }
-              return (
-                <video {...videoProps}>
-                  <source src="/ASI-product-human-data.mp4" type="video/mp4" />
-                </video>
-              )
-            })()}
+          <div className="relative overflow-hidden rounded-[14px] border border-white/[0.08] bg-[#0f1116]">
+            <video
+              ref={videoRef}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              poster="/ASI-product-human-data-poster.jpg"
+              className="w-full"
+            >
+              <source src="/ASI-product-human-data.mp4" type="video/mp4" />
+            </video>
+            {showPlayButton && (
+              <button
+                onClick={() => {
+                  const video = videoRef.current
+                  if (video) {
+                    video.muted = true
+                    video.play().then(() => setShowPlayButton(false)).catch(() => {})
+                  }
+                }}
+                className="absolute inset-0 flex items-center justify-center bg-black/30"
+                aria-label="Play video"
+              >
+                <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                  <circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.2)" />
+                  <polygon points="26,20 26,44 46,32" fill="white" />
+                </svg>
+              </button>
+            )}
           </div>
         </div>
       </section>
