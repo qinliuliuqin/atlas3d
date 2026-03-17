@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
@@ -10,15 +10,6 @@ import { Textarea } from "@/components/ui/textarea"
 export default function LandingPage() {
   const [showSignup, setShowSignup] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
-  const videoRef = useRef<HTMLVideoElement>(null)
-
-  useEffect(() => {
-    const video = videoRef.current
-    if (video) {
-      video.muted = true
-      video.play().catch(() => {})
-    }
-  }, [])
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -178,18 +169,11 @@ export default function LandingPage() {
             High-quality human demonstration data to train and evaluate robotic systems.
           </p>
           <div className="overflow-hidden rounded-[14px] border border-white/[0.08] bg-[#0f1116]">
-            <video
-              ref={videoRef}
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
-              poster="/ASI-product-human-data-poster.jpg"
+            <img
+              src="/ASI-product-human-data.gif"
+              alt="Human data with motion tracking"
               className="w-full"
-            >
-              <source src="/ASI-product-human-data.mp4" type="video/mp4" />
-            </video>
+            />
           </div>
         </div>
       </section>
