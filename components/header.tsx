@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react';
-import { ChevronRight, Navigation, Ruler } from 'lucide-react';
+import { Box, ChevronRight, Navigation, Ruler } from 'lucide-react';
 
 const Header: React.FC = () => {
   return (
@@ -42,6 +42,24 @@ const Header: React.FC = () => {
                   </a>
 
                   <a
+                    href="/products/reconstruction"
+                    className="group/item flex items-start gap-4 rounded-xl px-4 py-4 text-lg hover:bg-white/[0.08] transition-all duration-200"
+                  >
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[#8d76ff]/20 to-[#ff7bd5]/20 border border-white/[0.08] group-hover/item:from-[#8d76ff]/30 group-hover/item:to-[#ff7bd5]/30 transition-all duration-200">
+                      <Box className="h-5 w-5 text-[#8d76ff]" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="font-semibold text-foreground">3D Reconstruction</span>
+                        <ChevronRight className="h-4 w-4 text-muted-foreground opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200" />
+                      </div>
+                      <p className="text-sm text-muted-foreground leading-snug">
+                        Walk through spaces we have rebuilt in 3D
+                      </p>
+                    </div>
+                  </a>
+
+                  <a
                     href="https://box.atlas3d.ai"
                     className="group/item flex items-start gap-4 rounded-xl px-4 py-4 text-lg hover:bg-white/[0.08] transition-all duration-200"
                   >
@@ -62,17 +80,17 @@ const Header: React.FC = () => {
               </div>
             </li>
             <li>
-              <a href="#services" className="text-foreground/80 hover:text-foreground text-lg">
+              <a href="/#services" className="text-foreground/80 hover:text-foreground text-lg">
                 Services
               </a>
             </li>
             <li>
-              <a href="#blogs" className="text-foreground/80 hover:text-foreground text-lg">
+              <a href="/#blogs" className="text-foreground/80 hover:text-foreground text-lg">
                 Blogs
               </a>
             </li>
             <li>
-              <a href="#pricing" className="text-foreground/80 hover:text-foreground text-lg">
+              <a href="/#pricing" className="text-foreground/80 hover:text-foreground text-lg">
                 Pricing
               </a>
             </li>
@@ -84,7 +102,7 @@ const Header: React.FC = () => {
             </li>
             */}
             <li>
-              <a href="#contact" className="rounded-xl border border-white/15 px-4 py-2.5 hover:bg-white/5 text-lg">
+              <a href="/#contact" className="rounded-xl border border-white/15 px-4 py-2.5 hover:bg-white/5 text-lg">
                 Contact
               </a>
             </li>
