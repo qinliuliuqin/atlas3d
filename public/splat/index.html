@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>3D Reconstruction · Atlas Spatial Intelligence</title>
+<style>
+  :root { --bg:#0b0d12; --panel:rgba(16,19,28,0.86); --ink:#eef1f6; --muted:#9aa4b5; --line:rgba(255,255,255,0.12); --accent:#5b8cff; }
+  html,body { margin:0; height:100%; background:var(--bg); color:var(--ink); font:13px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; overflow:hidden; overscroll-behavior:none; }
+  #view { position:fixed; inset:0; width:100%; height:100%; display:block; cursor:grab; touch-action:none; outline:none; }
+  #view.drag { cursor:grabbing; }
+  .panel { position:fixed; background:var(--panel); border:1px solid var(--line); border-radius:12px; backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); }
+  #side { top:calc(12px + env(safe-area-inset-top)); right:12px; width:228px; padding:10px 12px 11px; }
+  #side.closed .body { display:none; }
+  #side.closed { width:auto; }
+  #side h1 { font-size:13px; font-weight:600; margin:0; display:flex; justify-content:space-between; align-items:center; gap:14px; cursor:pointer; user-select:none; }
+  #side h1 span { color:var(--muted); font-weight:400; }
+  .body { margin-top:9px; }
+  label { display:block; color:var(--muted); font-size:11.5px; margin:8px 0 3px; }
+  select, button { font:inherit; color:var(--ink); border:1px solid var(--line); border-radius:8px; }
+  select { width:100%; background:#171b27; padding:6px 7px; }
+  input[type=range] { width:100%; margin:2px 0 0; accent-color:var(--accent); }
+  button { background:rgba(255,255,255,0.07); padding:6px 10px; cursor:pointer; }
+  button:hover { background:rgba(255,255,255,0.13); }
+  #reset { width:100%; margin-top:9px; background:var(--accent); border-color:var(--accent); color:#fff; }
+  #help { color:var(--muted); font-size:11.5px; margin:9px 0 0; }
+  #help b { color:var(--ink); font-weight:600; }
+  #msg { top:50%; left:50%; transform:translate(-50%,-50%); padding:13px 20px; font-size:14px; text-align:center; max-width:80vw; }
+  #bar { height:3px; background:rgba(255,255,255,0.12); border-radius:2px; margin-top:9px; overflow:hidden; }
+  #bar i { display:block; height:100%; width:0; background:var(--accent); transition:width .2s; }
+  #pad { position:fixed; left:50%; bottom:calc(16px + env(safe-area-inset-bottom)); transform:translateX(-50%); display:none; gap:12px; }
+  #pad button { width:58px; height:58px; border-radius:50%; font-size:20px; background:var(--panel); touch-action:none; user-select:none; -webkit-user-select:none; }
+  #pad button.on { background:var(--accent); border-color:var(--accent); }
+  @media (pointer:coarse) { #pad { display:flex; } .keys { display:none; } }
+  @media (pointer:fine) { .touch { display:none; } }
+  #stats { position:fixed; left:12px; bottom:10px; font-size:11px; color:var(--muted); display:none; }
+</style>
+</head>
+<body>
+<canvas id="view" tabindex="0"></canvas>
+<div id="side" class="panel">
+  <h1 id="fold"><span style="color:var(--ink);font-weight:600">3D reconstruction</span> <span id="arrow">▾</span></h1>
+  <div class="body">
+    <label for="scene">Scene</label>
+    <select id="scene"></select>
+    <label for="path">Walk the capture path</label>
+    <input type="range" id="path" min="0" max="1000" value="0">
+    <button id="reset">Back to the start</button>
+    <p id="help"><b>Drag</b> to look around.<span class="keys"> <b>W A S D</b> to walk, <b>Q / E</b> down / up, <b>Shift</b> faster.</span><span class="touch"> Hold <b>▲ ▼</b> to walk.</span></p>
+  </div>
+</div>
+<div id="pad"><button id="fwd" aria-label="Walk forward">▲</button><button id="back" aria-label="Walk back">▼</button></div>
+<div id="msg" class="panel">Loading scene…<div id="bar"><i></i></div></div>
+<div id="stats"></div>
+<script type="module">
+// In-browser viewer for our 3DGS reconstructions: the scene (the vendor's compressed, streamed web export,
+// lod-meta.json + .sog chunks) is downloaded once and rendered on the visitor's own GPU, so looking and
+// walking respond immediately and any number of visitors can open the page at the same time.
+// Scene data: vendor frame, metres, z up. Engine: y up. World (x, y, z)vendor -> (x, z, -y)engine.
+import * as pc from "./vendor/playcanvas-2.23.3.min.mjs";   // bundled: foreign CDNs are unreliable from China
+
+const $ = id => document.getElementById(id);
+const params = new URLSearchParams(location.search);
+// scene files: our file server (asi-gpu0 behind the Cloudflare tunnel) for now; ?files=<url> points elsewhere
+const BASE = new URL(params.get("files") || "https://scenes.atlas3d.ai/", location.href);
+const FOV = 70, EYE_ROAM = 1.5, SPEED = 1.5, PITCH_MAX = Math.PI / 3;
+const coarse = matchMedia("(pointer:coarse)").matches;
+
+// ---------------------------------------------------------------- engine
+const canvas = $("view");
+const app = new pc.Application(canvas, {
+  mouse: new pc.Mouse(canvas), touch: new pc.TouchDevice(canvas), keyboard: new pc.Keyboard(window),
+  graphicsDeviceOptions: { antialias: false, alpha: false },
+});
+// phones have 3x screens but small GPUs: 1.5x keeps splats sharp enough and halves the pixels to fill
+app.graphicsDevice.maxPixelRatio = Math.min(devicePixelRatio || 1, coarse || Math.min(innerWidth, innerHeight) < 600 ? 1.5 : 2);
+app.setCanvasFillMode(pc.FILLMODE_FILL_WINDOW);
+app.setCanvasResolution(pc.RESOLUTION_AUTO);
+addEventListener("resize", () => app.resizeCanvas());
+app.start();
+
+const camera = new pc.Entity("camera");
+camera.addComponent("camera", { clearColor: new pc.Color(0.043, 0.051, 0.071), fov: FOV, nearClip: 0.03, farClip: 1000 });
+app.root.addChild(camera);
+function fitFov() {                       // portrait phones: keep the same angle across the width (max 100 deg tall)
+  const a = canvas.clientWidth / Math.max(1, canvas.clientHeight);
+  camera.camera.fov = a >= 1 ? FOV : Math.min(100, 2 * Math.atan(Math.tan(FOV * Math.PI / 360) / a) * 180 / Math.PI);
+}
+addEventListener("resize", fitFov); fitFov();
+
+// ---------------------------------------------------------------- scene
+let pos = new pc.Vec3(), yaw = 0, pitch = 0;      // vendor frame: position (m), heading (rad from +x, ccw), pitch (rad, + up)
+let path = [], arc = [0], scene = null;
+const keys = {};
+
+function poseAt(frac) {
+  const s = Math.max(0, Math.min(1, frac)) * arc[arc.length - 1];
+  const at = d => { let i = arc.findIndex(v => v >= d); return i < 0 ? path.length - 1 : i; };
+  const k = at(s); let j = at(s + 1.5), i = k;
+  if (j === k) i = at(s - 1.5);
+  const dx = path[j][0] - path[i][0], dy = path[j][1] - path[i][1];
+  return { p: path[k].slice(), yaw: Math.hypot(dx, dy) > 1e-6 ? Math.atan2(dy, dx) : 0 };
+}
+function goto(frac) {
+  const q = poseAt(frac);
+  pos.set(q.p[0], q.p[1], q.p[2]); yaw = q.yaw; pitch = 0;
+  if (!sliding) $("path").value = Math.round(frac * 1000);
+}
+function confine() {                        // no collision map: stay within EYE_ROAM of the capture path
+  let best = 0, bd = Infinity;
+  for (let i = 0; i < path.length; i++) { const d = (path[i][0] - pos.x) ** 2 + (path[i][1] - pos.y) ** 2 + (path[i][2] - pos.z) ** 2; if (d < bd) { bd = d; best = i; } }
+  const c = path[best], vx = pos.x - c[0], vy = pos.y - c[1], n = Math.hypot(vx, vy);
+  if (n > EYE_ROAM) { pos.x = c[0] + vx / n * EYE_ROAM; pos.y = c[1] + vy / n * EYE_ROAM; }
+  pos.z = Math.max(c[2] - 1, Math.min(c[2] + 1, pos.z));
+}
+
+async function open(list, id) {
+  const sc = list.find(s => s.id === id) || list[0];
+  scene = sc;
+  document.title = `${sc.name} · 3D Reconstruction`;
+  const pj = await (await fetch(new URL(sc.path, BASE))).json();
+  path = pj.path; arc = [0];
+  for (let i = 1; i < path.length; i++) arc.push(arc[i - 1] + Math.hypot(path[i][0] - path[i - 1][0], path[i][1] - path[i - 1][1], path[i][2] - path[i - 1][2]));
+  goto(sc.start ?? 0.03);
+  const meta = await (await fetch(new URL(sc.lod, BASE))).json();
+  const chunks = meta.filenames.length + (meta.environment ? 1 : 0);
+  if (sc.mb) $("msg").firstChild.textContent = `Loading ${sc.name} (${Math.round(sc.mb)} MB)…`;
+  const asset = new pc.Asset(sc.id, "gsplat", { url: new URL(sc.lod, BASE).href });
+  app.assets.add(asset);
+  asset.on("error", e => { $("msg").textContent = "Could not load the scene."; console.error(e); });
+  asset.ready(() => {
+    const e = new pc.Entity(sc.id);
+    e.addComponent("gsplat", { asset });
+    e.setLocalEulerAngles(-90, 0, 0);       // z up -> y up
+    app.root.addChild(e);
+    watchLoading(chunks);
+  });
+  app.assets.load(asset);
+}
+
+// streamed chunks: show progress until every .sog of the scene has arrived (or 20 s, then let the visitor in anyway)
+function watchLoading(chunks) {
+  const got = () => performance.getEntriesByType("resource").filter(r => /\.sog(\?|$)/.test(r.name));
+  const t0 = performance.now();
+  const tick = () => {
+    const g = got();
+    $("bar").firstElementChild.style.width = `${Math.min(100, 100 * g.length / chunks)}%`;
+    if (g.length >= chunks || performance.now() - t0 > 20000) {
+      setTimeout(() => { $("msg").style.display = "none"; }, 300);   // the last chunk still has to be decoded
+      loadInfo = `${g.length}/${chunks} chunks · ${scene.mb ?? "?"} MB · loaded ${(performance.now() / 1000).toFixed(1)} s after opening`;
+      return;
+    }
+    setTimeout(tick, 150);
+  };
+  tick();
+}
+let loadInfo = "";
+
+// ---------------------------------------------------------------- input: drag to look, keys / buttons to walk
+let drag = null;
+canvas.addEventListener("pointerdown", e => { drag = [e.clientX, e.clientY]; canvas.classList.add("drag"); canvas.setPointerCapture(e.pointerId); canvas.focus(); });
+canvas.addEventListener("pointermove", e => {
+  if (!drag) return;
+  const f = canvas.clientHeight / 2 / Math.tan(camera.camera.fov * Math.PI / 360);   // CSS px per radian
+  yaw += (e.clientX - drag[0]) / f;
+  pitch = Math.max(-PITCH_MAX, Math.min(PITCH_MAX, pitch + (e.clientY - drag[1]) / f));
+  drag = [e.clientX, e.clientY];
+});
+const endDrag = () => { drag = null; canvas.classList.remove("drag"); };
+canvas.addEventListener("pointerup", endDrag); canvas.addEventListener("pointercancel", endDrag);
+const KEYMAP = { w: "w", a: "a", s: "s", d: "d", q: "q", e: "e", shift: "shift", arrowup: "w", arrowdown: "s", arrowleft: "a", arrowright: "d" };
+addEventListener("keydown", e => {
+  if (e.target.tagName === "SELECT" || e.target.tagName === "INPUT") return;
+  const k = KEYMAP[e.key.toLowerCase()];
+  if (k) { keys[k] = 1; if (e.key.startsWith("Arrow")) e.preventDefault(); }
+  else if (e.key === "i") $("stats").style.display = $("stats").style.display === "block" ? "none" : "block";
+});
+addEventListener("keyup", e => { const k = KEYMAP[e.key.toLowerCase()]; if (k) delete keys[k]; });
+addEventListener("blur", () => { for (const k in keys) delete keys[k]; });
+for (const [id, k] of [["fwd", "w"], ["back", "s"]]) {
+  const b = $(id), on = e => { e.preventDefault(); keys[k] = 1; b.classList.add("on"); }, off = () => { delete keys[k]; b.classList.remove("on"); };
+  b.addEventListener("pointerdown", on); b.addEventListener("pointerup", off); b.addEventListener("pointercancel", off); b.addEventListener("pointerleave", off);
+  b.addEventListener("contextmenu", e => e.preventDefault());
+}
+
+let frames = 0, fpsT = performance.now(), fps = 0;
+app.on("update", dt => {
+  dt = Math.min(dt, 0.1);
+  const g = k => (keys[k] ? 1 : 0), fwd = g("w") - g("s"), side = g("d") - g("a"), up = g("e") - g("q");
+  if (path.length && (fwd || side || up)) {
+    const sp = (keys.shift ? 2 : 1) * SPEED * dt;
+    let dx = Math.cos(yaw) * fwd + Math.sin(yaw) * side, dy = Math.sin(yaw) * fwd - Math.cos(yaw) * side;
+    const n = Math.hypot(dx, dy); if (n > 0) { dx /= n; dy /= n; }
+    pos.x += dx * sp; pos.y += dy * sp; pos.z += up * sp;
+    confine();
+  }
+  camera.setPosition(pos.x, pos.z, -pos.y);
+  camera.setEulerAngles(pitch * 180 / Math.PI, yaw * 180 / Math.PI - 90, 0);
+  frames++;
+  const now = performance.now();
+  if (now - fpsT > 1000) { fps = frames * 1000 / (now - fpsT); frames = 0; fpsT = now; $("stats").textContent = `${fps.toFixed(0)} fps · ${canvas.width}×${canvas.height} · ${loadInfo}`; }
+});
+
+// ---------------------------------------------------------------- panel
+let sliding = false, slideT = 0;
+$("path").addEventListener("input", e => { sliding = true; clearTimeout(slideT); slideT = setTimeout(() => { sliding = false; }, 600); goto(e.target.value / 1000); });
+$("path").addEventListener("change", e => e.target.blur());
+$("reset").addEventListener("click", e => { goto(scene?.start ?? 0.03); e.target.blur(); });
+$("fold").addEventListener("click", () => { const c = $("side").classList.toggle("closed"); $("arrow").textContent = c ? "▸" : "▾"; });
+if (innerWidth < 520) { $("side").classList.add("closed"); $("arrow").textContent = "▸"; }
+
+const list = (await (await fetch(new URL("scenes.json", BASE))).json()).scenes;
+const sel = $("scene");
+for (const s of list) { const o = document.createElement("option"); o.value = s.id; o.textContent = s.name; sel.appendChild(o); }
+const id = params.get("scene") || list[0].id;
+sel.value = id;
+sel.addEventListener("change", e => { params.set("scene", e.target.value); location.search = params.toString(); });
+await open(list, id);
+window.__viewer = { app, camera, get pos() { return pos; }, get yaw() { return yaw; }, set yaw(v) { yaw = v; }, keys, get fps() { return fps; }, get loadInfo() { return loadInfo; } };
+</script>
+</body>
+</html>
